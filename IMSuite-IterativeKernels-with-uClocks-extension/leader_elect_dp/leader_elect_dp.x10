@@ -239,7 +239,7 @@ public class leader_elect_dp
 						}	
 					}
 					
-					Clock.advanceAll();
+					Clock.advanceAllLazy();
 					
 					if(!nodeSet(i).complete) {
 						var j:Long;
@@ -299,7 +299,7 @@ public class leader_elect_dp
 						}
 					}
 					
-					Clock.advanceAll();
+					Clock.advanceAllLazy();
 					
 					if(!nodeSet(i).complete) {
 						if(cflag(i)) {

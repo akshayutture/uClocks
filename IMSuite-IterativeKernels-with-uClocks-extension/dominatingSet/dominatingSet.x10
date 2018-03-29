@@ -239,7 +239,7 @@ public class dominatingSet
 						someVal = Math.pow(2, vertexSet(i).Wtilde);
 						vertexSet(i).Wtilde = (someVal as Long);
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 						
 						val index:Long = i(0);			
 						vertexSet(i).WHat = 0;						
@@ -260,7 +260,7 @@ public class dominatingSet
 						else
 							vertexSet(i).active = false;
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 							
 						vertexSet(i).support = 0;
 						for(var j:Long=0; j<vertexSet(i).neighbours.size; j++)
@@ -272,7 +272,7 @@ public class dominatingSet
 						if(vertexSet(i).active)
 							vertexSet(i).support++;
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 										
 						vertexSet(i).Sv = 0;
 						for(var j:Long=0; j<vertexSet(i).whiteNeighbours.size; j++)
@@ -291,7 +291,7 @@ public class dominatingSet
 								vertexSet(i).candidate = true;
 						}
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 						
 						vertexSet(i).Cv = 0;
 						for(var j:Long=0; j<vertexSet(i).whiteNeighbours.size; j++)
@@ -303,7 +303,7 @@ public class dominatingSet
 						if(vertexSet(i).candidate)
 							vertexSet(i).Cv++;
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 										
 						var sumCv:Long=0;				
 						for(var j:Long=0; j<vertexSet(i).whiteNeighbours.size; j++)
@@ -322,7 +322,7 @@ public class dominatingSet
 							vertexSet(i).domSetCandidate = true;
 						}
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 						
 						if(vertexSet(i).domSetCandidate) {
 							var maxId:Long = index;
@@ -344,7 +344,7 @@ public class dominatingSet
 						}
 						vertexSet(i).neighborCandidate.clear();
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 						
 						if(vertexSet(i).cflag) {
 							vertexSet(i).Wv = 0;
@@ -352,7 +352,7 @@ public class dominatingSet
 							vertexSet(i).active = false;
 						}
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 							
 						if(vertexSet(i).Wv != 0) {				
 							vertexSet(i).Wv = 0;

@@ -322,7 +322,7 @@ public class byzantine
                                 		}	
                                 	}
                                 	
-                                	Clock.advanceAll();
+                                	Clock.advanceAllLazy();
                                 	
                                 	allNodes(i).messageHolder.clear();
                                 	var msg:Message = new Message();

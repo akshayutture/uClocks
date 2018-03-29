@@ -175,7 +175,7 @@ public class leader_elect_lcr
 	  				val sval:Long = processSet(i).send;
 					sendMessage(p, sval);
 					
-					Clock.advanceAll();
+					Clock.advanceAllLazy();
 					
 					if(processSet(i).recievedId > processSet(i).leaderId) {
 						processSet(i).send = processSet(i).recievedId;

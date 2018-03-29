@@ -248,7 +248,7 @@ public class kcommitte
 					 		sendMinActive(pt, nodeSet(i).minActive.from, nodeSet(i).minActive.value);
 					 	}
 					 	
-					 	Clock.advanceAll();
+					 	Clock.advanceAllLazy();
 					 	
 						var ms:Message = null;
 						var minValue:Long = nodeSet(i).minActive.value;
@@ -323,7 +323,7 @@ public class kcommitte
 						}
 						nodeSet(i).invitationHolder.clear();	
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 						
 						nodeSet(i).invitationHolder.clear();
 						if(nodeSet(i).tempInvitationHolder.size() > 0)
@@ -346,7 +346,7 @@ public class kcommitte
 						}
 						nodeSet(i).tempInvitationHolder.clear();
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 						
 						flag=false;
 						var index:Long = i.operator()(0);

@@ -277,7 +277,7 @@ public class leader_elect_hs
 						if(!sflag)
 							nodeSet(i).status = false;
 							
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 							
 						if(send_pl(i) == true) {
 							var ptplus:Point = i;
@@ -290,7 +290,7 @@ public class leader_elect_hs
 							sendMessage(ptminus, nodeSet(i).sendToMinus.uid, nodeSet(i).sendToMinus.hop, nodeSet(i).sendToMinus.mtime, nodeSet(i).sendToMinus.boundType, true);
 						}
 						
-						Clock.advanceAll();
+						Clock.advanceAllLazy();
 						
 						if(nodeSet(i).messageFromPlus != null) {
 							if(nodeSet(i).messageFromPlus.mtime != 1)
