@@ -189,11 +189,19 @@ public final class Clock(name:String) {
         if (dropped()) clockUseException("resume");
         resumeUnsafe();
     }
+    public @Global def resumeLazy():void {
+        if (dropped()) clockUseException("resume");
+        resumeUnsafe();
+    }
     public @Global def resumeEager():void {
         if (dropped()) clockUseException("resume");
         resumeUnsafeEager();
     }
     public @Global def advance():void {
+        if (dropped()) clockUseException("advance");
+        advanceUnsafe();
+    }
+    public @Global def advanceLazy():void {
         if (dropped()) clockUseException("advance");
         advanceUnsafe();
     }
@@ -219,12 +227,20 @@ public final class Clock(name:String) {
     }
 
     @Native("cuda", "__syncthreads()")
+    public static def advanceAllLazy():void {
+        Runtime.ensureNotInAtomic();
+        getClockPhases().advanceAll();
+    }
+    
+    @Native("cuda", "__syncthreads()")
     public static def advanceAllEager():void {
         Runtime.ensureNotInAtomic();
         getClockPhases().advanceAllEager();
     }
     
     public static def resumeAll():void { getClockPhases().resumeAll(); }
+    
+    public static def resumeAllLazy():void { getClockPhases().resumeAll(); }
     
     public static def resumeAllEager():void { getClockPhases().resumeAllEager(); }
     
